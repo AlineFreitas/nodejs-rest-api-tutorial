@@ -28,4 +28,8 @@ module.exports = {
   findById(id){
     return Product.findById(id);
   },
+
+  update(id, data){
+    return Product.findByIdAndUpdate(id, data);
+  }
 }
