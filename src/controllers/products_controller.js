@@ -1,8 +1,13 @@
 const Product = require('../models/products');
 
 module.exports = {
-  list(request, response){
-    response.json(request.body);
+  async list(request, response){
+    try {
+      let products = await Product.find({});
+      return response.json(products);
+    } catch (error) {
+      return response.status(400).json(error);
+    }
   },
 
   async create(request, response){
