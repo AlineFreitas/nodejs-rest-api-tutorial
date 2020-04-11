@@ -16,4 +16,13 @@ module.exports = {
         return response.status(400).json(error);
       });
   },
+  async list(request, response) {
+    await orderRepository.getAll()
+      .then((orders) => {
+        return response.status(200).json(orders);
+      })
+      .catch((error) => {
+        return response.status(400).json(error);
+      });
+  },
 };
