@@ -12,8 +12,10 @@ const customerSchema = new Schema({
     require: true,
     unique: true,
     index: true,
-    min: [11, 'CPF must be either 11 carachters long (without symbols) or 14 (with symbols).'],
-    max: [14, 'CPF must be either 11 carachters long (without symbols) or 14 (with symbols).'],
+    min: [11, 'CPF must be either 11 carachters long '+
+          '(without symbols) or 14 (with symbols).'],
+    max: [14, 'CPF must be either 11 carachters long '+
+          '(without symbols) or 14 (with symbols).'],
   },
   email: {
     type: String,
@@ -30,9 +32,7 @@ const customerSchema = new Schema({
     type: Date,
     require: true,
     default: Date.now,
-  }
+  },
 });
 
-const customerModel = new mongoose.model('Customer', customerSchema);
-
-module.exports= customerModel;
+module.exports= mongoose.model('Customer', customerSchema);

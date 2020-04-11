@@ -3,7 +3,7 @@
 const Customer = require('../models/customer');
 
 module.exports= {
-  create(customerObject){
+  create(customerObject) {
     return Customer.create(customerObject);
-  }
-}
+  },
+};

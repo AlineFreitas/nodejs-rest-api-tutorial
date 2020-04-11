@@ -1,6 +1,6 @@
-const router = require('express').Router();
-const customers_controller = require('../controllers/customers_controller');
+const router = require('express').Router(); // eslint-disable-line new-cap
+const customersController = require('../controllers/customers_controller');
 
-router.post('/', customers_controller.create);
+router.post('/', customersController.create);
 
 module.exports= router;
