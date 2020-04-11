@@ -43,4 +43,13 @@ module.exports = {
         return response.status(400).json(error);
       });
   },
+  async delete(request, response) {
+    await orderRepository.delete(request.params.id)
+      .then((order) => {
+        return response.status(200).send();
+      })
+      .catch((error) => {
+        return response.status(400).json(error);
+      });
+  },
 };

@@ -15,4 +15,7 @@ module.exports= {
   update(id, data) {
     return Order.findOneAndUpdate(id, data, {new: true});
   },
+  delete(id) {
+    return Order.findByIdAndDelete(id);
+  },
 };
