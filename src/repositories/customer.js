@@ -6,4 +6,7 @@ module.exports= {
   create(customerObject) {
     return Customer.create(customerObject);
   },
+  getAll() {
+    return Customer.find({});
+  },
 };
