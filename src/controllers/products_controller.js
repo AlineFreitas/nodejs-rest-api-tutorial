@@ -2,25 +2,27 @@ const productRepository = require('../repositories/products');
 
 module.exports = {
   async list(request, response){
-    try {
-      let products = await productRepository.findAll();
+    await productRepository.findAll()
+    .then( products => {
       return response.json(products);
-    } catch (error) {
+    })
+    .catch(error => {
       return response.status(400).json(error);
-    }
+    });
   },
 
   async create(request, response){
-    try {
-      let product = await productRepository.create(request.body);
+    await productRepository.create(request.body)
+    .then(product => {
       return response.status(201).json(product);
-    } catch(error) {
+    })
+    .catch(error => {
       return response.json(error);
-    }
+    });
   },
 
   async getBySlug(request, response){
-    productRepository.findBySlug(request.params.slug)
+    await productRepository.findBySlug(request.params.slug)
     .then(product => {
       if(product) {
         return response.status(201).json(product);
