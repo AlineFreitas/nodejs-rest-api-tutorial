@@ -47,5 +47,15 @@ module.exports = {
     .catch(error => {
       return response.status(400).json(error);
     });
+  },
+
+  async update(request, response){
+    await productRepository.update(request.params.id, request.body)
+    .then(product => {
+      return response.status(200).json(product)
+    })
+    .catch(error => {
+      return response.status(404).json(error);
+    });
   }
 }
