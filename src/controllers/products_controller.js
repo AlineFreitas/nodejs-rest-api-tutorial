@@ -52,7 +52,11 @@ module.exports = {
   async update(request, response){
     await productRepository.update(request.params.id, request.body)
     .then(product => {
-      return response.status(200).json(product)
+      if(product) {
+        return response.status(200).json(product);
+      } else {
+        return response.status(404).send();
+      }
     })
     .catch(error => {
       return response.status(404).json(error);
@@ -62,7 +66,11 @@ module.exports = {
   async delete(request, response){
     await productRepository.delete(request.params.id)
     .then(product => {
-      return response.status(200).json(product)
+      if(product) {
+        return response.status(200).json(product);
+      } else {
+        return response.status(404).send();
+      }
     })
     .catch(error => {
       return response.status(404).json(error);
