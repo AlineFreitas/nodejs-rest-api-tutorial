@@ -15,4 +15,7 @@ module.exports= {
   findOneAndUpdate(id, data) {
     return Customer.findOneAndUpdate(id, data, {new: true});
   },
+  findOneAndDelete(id) {
+    return Customer.findOneAndDelete(id);
+  },
 };

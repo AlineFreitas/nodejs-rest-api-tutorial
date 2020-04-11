@@ -8,4 +8,6 @@ router.get('/:id', customersController.getById);
 
 router.patch('/:id', customersController.update);
 
+router.delete('/:id', customersController.delete);
+
 module.exports= router;
