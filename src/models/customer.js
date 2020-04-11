@@ -27,6 +27,7 @@ const customerSchema = new Schema({
     type: String,
     required: true,
     min: [6, 'passwords must have at least 6 characters'],
+    select: false,
   },
   createdAt: {
     type: Date,
