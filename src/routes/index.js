@@ -1,9 +1,9 @@
-const router = require('express').Router();
+const router = require('express').Router(); // eslint-disable-line new-cap
 
 router.get('/', (request, response) => {
   return response.send({
-    message: "You've reached GET '/' endpoint on this server."
-  })
+    message: 'You\'ve reached GET '/' endpoint on this server.',
+  });
 });
 
 router.use('/products', require('./products'));
