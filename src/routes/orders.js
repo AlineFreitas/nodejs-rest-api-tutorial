@@ -1,9 +1,7 @@
 const router = require('express').Router(); // eslint-disable-line new-cap
 
-router.post('/', (request, response) => {
-  return response.status(200).json({
-    message: 'You\'ve reached POST /orders endpoint',
-  });
-});
+const ordersController = require('../controllers/orders_controllers');
+
+router.post('/', ordersController.create);
 
 module.exports= router;
