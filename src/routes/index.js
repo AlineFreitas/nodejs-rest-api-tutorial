@@ -6,4 +6,6 @@ router.get('/', (request, response) => {
   })
 });
 
+router.use('/products', require('./products'));
+
 module.exports= router;
