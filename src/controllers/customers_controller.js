@@ -1,8 +1,12 @@
+const Customer = require('../models/customer');
+
 module.exports = {
-  create(request, response){
-    return response.status(200).json({
-      customer: request.body,
-      message: "You've reached POST /customers endpoint on this server"
+  async create(request, response){
+    await Customer.create(request.body)
+    .then(customer => {
+      return response.status(200).json(customer);
+    }).catch(error => {
+      return response.status(400).json(error);
     });
-  }
+  },
 }
