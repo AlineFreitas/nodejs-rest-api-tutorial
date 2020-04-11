@@ -1,8 +1,10 @@
 // products-api-rest
 const mongoose = require('mongoose');
 
+const connectionString = 'mongodb://localhost:27017/product-api-rest';
+
 mongoose.connect(
-  'mongodb://localhost:27017/product-api-rest',
+  connectionString,
   {useNewUrlParser: true, useUnifiedTopology: true}
 );
 
