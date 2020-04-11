@@ -12,4 +12,7 @@ module.exports= {
   getById(id) {
     return Customer.findById(id);
   },
+  findOneAndUpdate(id, data) {
+    return Customer.findOneAndUpdate(id, data, {new: true});
+  },
 };

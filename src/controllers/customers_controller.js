@@ -25,4 +25,12 @@ module.exports = {
         return response.status(400).json(error);
       });
   },
+  async update(request, response) {
+    await customerRepository.findOneAndUpdate(request.params.id, request.body)
+      .then((customer) => {
+        return response.status(200).json(customer);
+      }).catch((error) => {
+        return response.status(400).json(error);
+      });
+  },
 };

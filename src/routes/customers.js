@@ -6,4 +6,6 @@ router.post('/', customersController.create);
 router.get('/', customersController.list);
 router.get('/:id', customersController.getById);
 
+router.patch('/:id', customersController.update);
+
 module.exports= router;
