@@ -1,6 +1,6 @@
 'use strict';
 
-const Product = require('../models/products');
+const Product = require('../models/product');
 
 module.exports = {
   findAll() {
