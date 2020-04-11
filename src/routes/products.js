@@ -1,4 +1,4 @@
-const router = require('express').Router();
+const router = require('express').Router(); // eslint-disable-line new-cap
 const productController = require('../controllers/products_controller.js');
 
 router.get('/', productController.list);

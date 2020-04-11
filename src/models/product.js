@@ -43,9 +43,7 @@ const productSchema = new Schema({
     type: Date,
     require: true,
     default: Date.now,
-  }
+  },
 });
 
-const productModel = new mongoose.model('Product', productSchema);
-
-module.exports= productModel;
+module.exports= mongoose.model('Product', productSchema);
