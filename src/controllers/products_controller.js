@@ -57,5 +57,15 @@ module.exports = {
     .catch(error => {
       return response.status(404).json(error);
     });
+  },
+
+  async delete(request, response){
+    await productRepository.delete(request.params.id)
+    .then(product => {
+      return response.status(200).json(product)
+    })
+    .catch(error => {
+      return response.status(404).json(error);
+    });
   }
 }
