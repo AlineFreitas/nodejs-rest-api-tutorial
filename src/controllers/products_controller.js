@@ -17,5 +17,22 @@ module.exports = {
     } catch(error) {
       return response.json(error);
     }
+  },
+
+  async getBySlug(request, response){
+    Product.findOne({
+        slug: request.params.slug,
+        active: true
+      }, 'slug title description price barcode tags')
+    .then(data => {
+      if(data) {
+        return response.status(201).json(data);
+      } else {
+        return response.status(404).send();
+      }
+    })
+    .catch(error => {
+      return response.json(error);
+    });
   }
 }
