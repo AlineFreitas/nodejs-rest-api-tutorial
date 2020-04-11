@@ -34,4 +34,13 @@ module.exports = {
         return response.status(400).json(error);
       });
   },
+  async update(request, response) {
+    await orderRepository.update(request.params.id, request.body)
+      .then((order) => {
+        return response.status(200).json(order);
+      })
+      .catch((error) => {
+        return response.status(400).json(error);
+      });
+  },
 };

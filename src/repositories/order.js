@@ -12,4 +12,7 @@ module.exports= {
   getById(id) {
     return Order.findById(id);
   },
+  update(id, data) {
+    return Order.findOneAndUpdate(id, data, {new: true});
+  },
 };
