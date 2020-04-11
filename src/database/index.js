@@ -1,10 +1,10 @@
 // products-api-rest
 const mongoose = require('mongoose');
 
-const connectionString = 'mongodb://localhost:27017/product-api-rest';
+const config = require('../bin/config');
 
 mongoose.connect(
-  connectionString,
+  config.connectionString,
   {useNewUrlParser: true, useUnifiedTopology: true},
 );
 
