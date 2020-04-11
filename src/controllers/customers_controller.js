@@ -17,4 +17,12 @@ module.exports = {
         return response.status(400).json(error);
       });
   },
+  async getById(request, response) {
+    await customerRepository.getById(request.params.id)
+      .then((customer) => {
+        return response.status(200).json(customer);
+      }).catch((error) => {
+        return response.status(400).json(error);
+      });
+  },
 };
