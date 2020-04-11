@@ -14,11 +14,18 @@ module.exports = {
     }, 'slug title description price barcode tags')
   },
 
+  findByTag(tag) {
+    return Product.find({
+      tags: tag,
+      active: true
+    }, 'slug title description price barcode tags')
+  },
+
   create(params) {
     return Product.create(params);
   },
 
   findById(id){
     return Product.findById(id);
-  }
+  },
 }

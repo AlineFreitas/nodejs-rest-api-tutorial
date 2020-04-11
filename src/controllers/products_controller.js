@@ -34,4 +34,18 @@ module.exports = {
       return response.status(400).json(error);
     });
   },
+
+  async getByTag(request, response){
+    await productRepository.findByTag(request.params.tag)
+    .then(products => {
+      if(products) {
+        return response.status(200).json(products);
+      } else {
+        return response.status(404).send();
+      }
+    })
+    .catch(error => {
+      return response.status(400).json(error);
+    });
+  }
 }
