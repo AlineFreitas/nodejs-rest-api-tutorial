@@ -1,8 +1,8 @@
-const Customer = require('../models/customer');
+const customerRepository = require('../repositories/customer');
 
 module.exports = {
   async create(request, response){
-    await Customer.create(request.body)
+    await customerRepository.create(request.body)
     .then(customer => {
       return response.status(200).json(customer);
     }).catch(error => {
