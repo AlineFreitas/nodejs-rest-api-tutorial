@@ -1,7 +1,17 @@
-# How to run the api
+## About
 
-## Locally
-  npm run dev
+This repository was done using [this playlist](https://www.youtube.com/playlist?list=PLHlHvK2lnJndvvycjBqQAbgEDqXxKLoqn) as a guideline
 
-## Production
-  npm start
+### Dependencies
+General
+* Express
+* Mongoose
+
+Development
+* nodemon
+
+## Instructions
+
+#### How to run it locally
+
+    npm run dev
