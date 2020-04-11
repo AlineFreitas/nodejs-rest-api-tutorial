@@ -1,9 +1,6 @@
 const router = require('express').Router();
+const customers_controller = require('../controllers/customers_controller');
 
-router.post('/', (request, response) => {
-  return response.status(200).json({
-    message: "You've reached POST /customers endpoint on this server"
-  })
-});
+router.post('/', customers_controller.create);
 
 module.exports= router;
