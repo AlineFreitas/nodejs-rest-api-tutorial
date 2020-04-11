@@ -31,5 +31,9 @@ module.exports = {
 
   update(id, data){
     return Product.findByIdAndUpdate(id, data);
+  },
+
+  delete(id){
+    return Product.findByIdAndRemove(id);
   }
 }
