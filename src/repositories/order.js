@@ -9,4 +9,7 @@ module.exports= {
   getAll() {
     return Order.find({});
   },
+  getById(id) {
+    return Order.findById(id);
+  },
 };

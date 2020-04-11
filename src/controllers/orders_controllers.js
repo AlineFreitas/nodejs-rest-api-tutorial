@@ -25,4 +25,13 @@ module.exports = {
         return response.status(400).json(error);
       });
   },
+  async getById(request, response) {
+    await orderRepository.getById(request.params.id)
+      .then((order) => {
+        return response.status(200).json(order);
+      })
+      .catch((error) => {
+        return response.status(400).json(error);
+      });
+  },
 };
