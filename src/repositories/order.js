@@ -7,7 +7,9 @@ module.exports= {
     return Order.create(orderObject);
   },
   getAll() {
-    return Order.find({});
+    return Order.find({})
+      .populate('customer')
+      .populate('items.product');
   },
   getById(id) {
     return Order.findById(id);
