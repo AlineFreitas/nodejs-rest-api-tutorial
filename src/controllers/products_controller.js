@@ -1,9 +1,9 @@
-const Product = require('../models/products');
+const productRepository = require('../repositories/products');
 
 module.exports = {
   async list(request, response){
     try {
-      let products = await Product.find({});
+      let products = await productRepository.findAll();
       return response.json(products);
     } catch (error) {
       return response.status(400).json(error);
@@ -12,7 +12,7 @@ module.exports = {
 
   async create(request, response){
     try {
-      let product = await Product.create(request.body);
+      let product = await productRepository.create(request.body);
       return response.status(201).json(product);
     } catch(error) {
       return response.json(error);
@@ -20,13 +20,10 @@ module.exports = {
   },
 
   async getBySlug(request, response){
-    Product.findOne({
-        slug: request.params.slug,
-        active: true
-      }, 'slug title description price barcode tags')
-    .then(data => {
-      if(data) {
-        return response.status(201).json(data);
+    productRepository.findBySlug(request.params.slug)
+    .then(product => {
+      if(product) {
+        return response.status(201).json(product);
       } else {
         return response.status(404).send();
       }
